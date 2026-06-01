@@ -16,7 +16,7 @@ export default function Cadastro({ navigation }){
 
         try {
          // SUBSTITUA PELO SEU IP REAL (Não use localhost)
-            const resposta = await fetch('http://192.168.1', {
+            const resposta = await fetch('http://172.24.194.224', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, senha, confirmar_senha })
@@ -41,7 +41,7 @@ export default function Cadastro({ navigation }){
             {/* <TouchableOpacity style={styleCadastro.btn2} onPress={() => navigation.navigate('Home')}><Text>home</Text></TouchableOpacity> */}
             <TextInput style={styleCadastro.email} placeholder="email" value={email} onChangeText={setEmail}></TextInput>
             <TextInput style={styleCadastro.senha} placeholder="senha" value={senha} onChangeText={setSenha}></TextInput>
-            <TextInput style={styleCadastro.confSenha} placeholder="confirmar senha" value={senha} onChangeText={setConfirmar_senha}></TextInput>
+            <TextInput style={styleCadastro.confSenha} placeholder="confirmar senha" value={confirmar_senha} onChangeText={setConfirmar_senha}></TextInput>
             <TouchableOpacity onPress={enviarDados()}><Text>enviar</Text></TouchableOpacity>
         </View>
     );
