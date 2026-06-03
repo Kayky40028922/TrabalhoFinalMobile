@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styleCadastro = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2b2b2b'
+        backgroundColor: '#ffffff'
     },
     btn: {
         backgroundColor: '#6f00ff',

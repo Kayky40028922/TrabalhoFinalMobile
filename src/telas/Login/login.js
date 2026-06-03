@@ -1,38 +1,67 @@
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styleLogin } from "../style/styleLogin";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Login({ navigation }){
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    // const procurar = async ()=>{
+    //     try {
+
+    //     const response = await axios.post(
+    //         "http://169.254.3.230:3000/logar",
+    //         {
+    //             email,
+    //             senha
+    //         }
+    //     );
+
+    //     if (response.data.sucesso) {
+
+    //         Alert.alert("login feito");
+
+    //         // navigation.navigate('Home');
+
+    //     } else {
+
+    //         Alert.alert(
+    //             "Erro",
+    //             response.data.mensagem
+    //         );
+
+    //     }
+
+
+    // } catch (error) {
+
+    //     Alert.alert("email ou senha nao exite");
+    //     console.log(error);
+
+    // };
+    // };
+    const procurar = ()=>{
+        axios.post("http://169.254.3.230:3000/logar", {
+            email,
+            senha
+        })
+        .then(response => {
+            // console.log(response.data);
+            alert("login feito")
+        })
+        .catch(error => {
+            // console.log(error);
+            alert("nao existe")
+        });
+    };
+
     return(
         <View style={styleLogin.container}>
-            <View style={styleLogin.areaLogo}>
-                <Image></Image>
-            </View>
-            <View style={styleLogin.areaInputs}>
-                <TextInput style={styleLogin.email} placeholder="email"></TextInput>
-                <View style={styleLogin.areaSenha}>
-                    <TextInput style={styleLogin.senha} placeholder="senha"></TextInput>
-                    {/* <TouchableOpacity style={styleLogin.linkcadastro} onPress={() => navigation.navigate('Cadastro')}><Text>cadastro</Text></TouchableOpacity> */}
-                </View>
-                <TouchableOpacity style={styleLogin.btnproximo}><Text>proximo</Text></TouchableOpacity>
-            </View>
-            <Text>OU</Text>
-            <View style={styleLogin.areaOutrosLogins}>
-                <View style={styleLogin.coluna1}>
-                    <TouchableOpacity><Text>G</Text></TouchableOpacity>
-                    <TouchableOpacity><Text>N</Text></TouchableOpacity>
-                </View>
-                <View style={styleLogin.coluna2}>
-                    <TouchableOpacity><Text>F</Text></TouchableOpacity>
-                    <TouchableOpacity><Text>Xbox</Text></TouchableOpacity>
-                </View>
-                <View style={styleLogin.coluna3}>
-                    <TouchableOpacity><Text>X</Text></TouchableOpacity>
-                    <TouchableOpacity><Text>PS</Text></TouchableOpacity>
-                </View>
-            </View>
-            <View style={styleLogin.areabtn}>
-                <TouchableOpacity style={styleLogin.btn}><Text>Avançar</Text></TouchableOpacity>
-            </View>
+            <TextInput style={styleLogin.email} placeholder="email" value={email} onChangeText={setEmail}></TextInput>
+            <TextInput style={styleLogin.senha} placeholder="senha" value={senha} onChangeText={setSenha}></TextInput>
+            <TouchableOpacity onPress={procurar}><Text>entrar</Text></TouchableOpacity>
         </View>
     );
 }

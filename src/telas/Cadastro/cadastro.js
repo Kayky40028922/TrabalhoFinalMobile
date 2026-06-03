@@ -1,6 +1,7 @@
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styleCadastro } from "../style/styleCadastro";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Cadastro({ navigation }){
 
@@ -8,32 +9,33 @@ export default function Cadastro({ navigation }){
     const [senha, setSenha] = useState('');
     const [confirmar_senha, setConfirmar_senha] = useState('');
 
-    const enviarDados = async () => {
-        if (!email || !senha || !confirmar_senha) {
-        Alert.alert("Aviso", "Preencha todos os campos");
-        return;
-        }
+    const adicionar = () => {
 
-        try {
-         // SUBSTITUA PELO SEU IP REAL (Não use localhost)
-            const resposta = await fetch('http://172.24.194.224', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, senha, confirmar_senha })
-            });
+    axios.post("http://169.254.3.230:3000/cadastrar", {
+        email,
+        senha,
+        confirmar_senha
+    })
+    .then((resposta) => {
 
-            const dados = await resposta.json();
+        // console.log(resposta.data);
 
-            if (dados.sucesso) {
-            Alert.alert("Sucesso", "Aluno salvo no banco de dados!");
-            setEmail('');
-            setSenha('');
-            setConfirmar_senha('');
-            }
-        } catch (error) {
-            Alert.alert("Erro", "Não foi possível enviar os dados.");
-        }
-    };
+        // alert("Adicionado com sucesso!");
+
+        setEmail("");
+        setSenha("");
+        setConfirmar_senha("");
+
+        navigation.navigate('Home');
+    })
+    .catch((erro) => {
+
+        // console.log("Erro:", erro);
+        // console.log("Resposta:", erro.response?.data);
+
+        alert("Erro ao adicionar");
+    });
+};
 
     return(
         <View style={styleCadastro.container}>
@@ -42,7 +44,7 @@ export default function Cadastro({ navigation }){
             <TextInput style={styleCadastro.email} placeholder="email" value={email} onChangeText={setEmail}></TextInput>
             <TextInput style={styleCadastro.senha} placeholder="senha" value={senha} onChangeText={setSenha}></TextInput>
             <TextInput style={styleCadastro.confSenha} placeholder="confirmar senha" value={confirmar_senha} onChangeText={setConfirmar_senha}></TextInput>
-            <TouchableOpacity onPress={enviarDados()}><Text>enviar</Text></TouchableOpacity>
+            <TouchableOpacity onPress={adicionar}><Text>enviar</Text></TouchableOpacity>
         </View>
     );
 }

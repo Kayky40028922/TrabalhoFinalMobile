@@ -1,13 +1,19 @@
-import mysql from 'mysql2';
+import mysql from "mysql2";
 
-export const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',     // Geralmente é 'root'
-    password: '',
-    database: 'mobilebd'             // O banco que criamos no Passo 1
+const conn = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "mobilebd"
 });
 
 conn.connect((err) => {
-    if (err) console.error('Erro ao conectar ao MySQL:', err);
-    else console.log('Conectado ao MySQL com sucesso!');
+    if (err) {
+        console.log("Erro ao conectar:", err);
+        return;
+    }
+
+    console.log("MySQL conectado!");
 });
+
+export { conn };
