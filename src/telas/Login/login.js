@@ -8,40 +8,6 @@ export default function Login({ navigation }){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    // const procurar = async ()=>{
-    //     try {
-
-    //     const response = await axios.post(
-    //         "http://169.254.3.230:3000/logar",
-    //         {
-    //             email,
-    //             senha
-    //         }
-    //     );
-
-    //     if (response.data.sucesso) {
-
-    //         Alert.alert("login feito");
-
-    //         // navigation.navigate('Home');
-
-    //     } else {
-
-    //         Alert.alert(
-    //             "Erro",
-    //             response.data.mensagem
-    //         );
-
-    //     }
-
-
-    // } catch (error) {
-
-    //     Alert.alert("email ou senha nao exite");
-    //     console.log(error);
-
-    // };
-    // };
     const procurar = ()=>{
         axios.post("http://10.76.10.224:3000/logar", {
             email,
@@ -49,11 +15,12 @@ export default function Login({ navigation }){
         })
         .then(response => {
             // console.log(response.data);
-            alert("login feito")
+            // alert("login feito")
+            navigation.navigate('Home');
         })
         .catch(error => {
             // console.log(error);
-            alert("nao existe")
+            alert("nao existe");
         });
     };
 
@@ -62,6 +29,7 @@ export default function Login({ navigation }){
             <TextInput style={styleLogin.email} placeholder="email" value={email} onChangeText={setEmail}></TextInput>
             <TextInput style={styleLogin.senha} placeholder="senha" value={senha} onChangeText={setSenha}></TextInput>
             <TouchableOpacity onPress={procurar}><Text>entrar</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>nao possui conta?</TouchableOpacity>
         </View>
     );
 }
