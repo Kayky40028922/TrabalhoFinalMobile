@@ -43,7 +43,7 @@ export default function Login({ navigation }){
     // };
     // };
     const procurar = ()=>{
-        axios.post("http://169.254.3.230:3000/logar", {
+        axios.post("http://10.76.10.224:3000/logar", {
             email,
             senha
         })

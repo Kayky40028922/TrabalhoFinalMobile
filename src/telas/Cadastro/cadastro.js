@@ -11,7 +11,7 @@ export default function Cadastro({ navigation }){
 
     const adicionar = () => {
 
-    axios.post("http://169.254.3.230:3000/cadastrar", {
+    axios.post("http://10.76.10.224:3000/cadastrar", {
         email,
         senha,
         confirmar_senha
