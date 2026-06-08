@@ -14,7 +14,7 @@ export default function Home({ navigation }){
 
             const response = await api.get("/manga", {
                 params: {
-                    limit: 20,
+                    limit: 100,
                     "includes[]": "cover_art"
                 }       
             });
@@ -64,17 +64,19 @@ export default function Home({ navigation }){
 
 
 
-        
-        <FlatList
-    data={mangas}
-    keyExtractor={(item) => item.id}
-    renderItem={({ item }) => (
-        <View>
-            <Text>
-                {item.attributes.title.en}
-            </Text>
-        </View>
-    )}
-/>
+<ScrollView style={styleHome.container}>
+    <FlatList
+        data={mangas}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+            <View>
+                <Text>titulo</Text>
+                <Text>
+                    {item.attributes.title.en}
+                </Text>
+            </View>
+        )}
+    />
+</ScrollView>
     );
 }
