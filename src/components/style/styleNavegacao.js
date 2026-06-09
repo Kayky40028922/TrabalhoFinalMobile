@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const styleRodape = StyleSheet.create({
+export const styleNavegacao = StyleSheet.create({
     container: {
     height: '20vh',
     width: '100vw',

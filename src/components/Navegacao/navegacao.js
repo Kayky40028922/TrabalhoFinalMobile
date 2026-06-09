@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { styleRodape } from "../style/styleRodape";
+import { styleRodape } from "../style/styleNavegacao";
 
 export default function Rodape(){
     return(

@@ -11,30 +11,25 @@ export default function Cadastro({ navigation }){
 
     const adicionar = () => {
 
-    axios.post("http://10.142.204.224:3000/cadastrar", {
-        email,
-        senha,
-        confirmar_senha
-    })
-    .then((resposta) => {
+        if ( !email || !senha || !confirmar_senha){
+            alert("preencha todos os campos");
+        }
 
-        // console.log(resposta.data);
+        axios.post("http://10.142.204.224:3000/cadastrar", {
+            email,
+            senha,
+            confirmar_senha
+        })
+        .then((resposta) => {
+            setEmail("");
+            setSenha("");
+            setConfirmar_senha("");
 
-        // alert("Adicionado com sucesso!");
-
-        setEmail("");
-        setSenha("");
-        setConfirmar_senha("");
-
-        navigation.navigate('Home');
-    })
-    .catch((erro) => {
-
-        // console.log("Erro:", erro);
-        // console.log("Resposta:", erro.response?.data);
-
-        alert("Erro ao adicionar");
-    });
+            navigation.navigate('Home');
+        })
+        .catch((erro) => {
+            alert("Erro ao adicionar");
+        });
 };
 
     return(
