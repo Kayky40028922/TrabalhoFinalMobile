@@ -3,6 +3,7 @@ import { styleHome } from "../style/styleHome";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Cabecalho from "../../components/Cabecalho/cabecalho";
+import Navegacao from "../../components/Navegacao/navegacao";
 
 export default function Home({ navigation }){
 
@@ -48,6 +49,7 @@ export default function Home({ navigation }){
                     <Image
                         source={{uri: `https://uploads.mangadex.org/covers/${item.id}/${item.relationships?.find(rel => rel.type === "cover_art")?.attributes?.fileName}`}}
                             style={styleHome.imagem}
+                            resizeMode="contain"
                     />
 
                     <Text style={styleHome.titulo}>
@@ -68,6 +70,7 @@ export default function Home({ navigation }){
             );
             }}
             />
+            <Navegacao/>
         </View>
     );
 }

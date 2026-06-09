@@ -9,17 +9,14 @@ export default function Login({ navigation }){
     const [senha, setSenha] = useState('');
 
     const procurar = ()=>{
-        axios.post("http://10.76.10.224:3000/logar", {
+        axios.post("http://10.40.3.119:3000/logar", {
             email,
             senha
         })
         .then(response => {
-            // console.log(response.data);
-            // alert("login feito")
             navigation.navigate('Home');
         })
         .catch(error => {
-            // console.log(error);
             alert("nao existe");
         });
     };

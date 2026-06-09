@@ -8,8 +8,6 @@ export const styleCabecalho = StyleSheet.create({
     },
     cabecalho: {
         backgroundColor: '#ff0000',
-        hegth: '40px',
-        width: '100%',
         position: 'fixed',
-    }
+    },
 })

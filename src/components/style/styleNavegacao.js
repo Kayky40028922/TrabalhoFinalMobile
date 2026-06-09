@@ -2,10 +2,16 @@ import { StyleSheet } from "react-native";
 
 export const styleNavegacao = StyleSheet.create({
     container: {
-    height: '20vh',
+    height: '10vh',
     width: '100vw',
-    backgroundColor: '#ff0000',
+    backgroundColor: '#1b1a1a',
     position: 'fixed',
-    bottom: 0, 
+    bottom: 0,
   },
+  btns: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    marginTop: '20px'
+  }
 })
