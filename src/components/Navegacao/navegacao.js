@@ -12,13 +12,19 @@ export default function Navegacao(){
                     />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <BookOpenText />
+                    <BookOpenText 
+                        color={'#ffff'}
+                    />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <ChartColumnStacked />
+                    <ChartColumnStacked 
+                        color={'#ffff'}
+                    />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Menu />
+                    <Menu 
+                        color={'#ffff'}
+                    />
                 </TouchableOpacity>
             </View>
         </View>

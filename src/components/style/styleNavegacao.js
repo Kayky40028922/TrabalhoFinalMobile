@@ -11,7 +11,7 @@ export const styleNavegacao = StyleSheet.create({
   btns: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     marginTop: '20px'
   }
 })
