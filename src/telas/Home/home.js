@@ -33,7 +33,7 @@ export default function Home({ navigation }){
 
     return(
         <View style={styleHome.container}>
-            <Cabecalho />
+            {/* <Cabecalho /> */}
             <FlatList
                 style={styleHome.container}
                 data={mangas}

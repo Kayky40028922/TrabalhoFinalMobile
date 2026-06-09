@@ -5,7 +5,7 @@ export default function Cabecalho(){
     return(
         <View style={styleCabecalho.container}>
             <View style={styleCabecalho.cabecalho}>
-                ufyrfytfvytyvyvygvyvy
+                <Text>ufyrfytfvytyvyvygvyvy</Text>
             </View>
         </View>
     );

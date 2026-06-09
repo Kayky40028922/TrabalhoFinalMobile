@@ -9,7 +9,7 @@ export default function Login({ navigation }){
     const [senha, setSenha] = useState('');
 
     const procurar = ()=>{
-        axios.post("http://10.142.204.224:3000/logar", {
+        axios.post("http://10.76.10.224:3000/logar", {
             email,
             senha
         })
@@ -28,8 +28,8 @@ export default function Login({ navigation }){
         <View style={styleLogin.container}>
             <TextInput style={styleLogin.email} placeholder="email" value={email} onChangeText={setEmail}></TextInput>
             <TextInput style={styleLogin.senha} placeholder="senha" value={senha} onChangeText={setSenha}></TextInput>
-            <TouchableOpacity onPress={procurar}><Text>entrar</Text></TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>nao possui conta?</TouchableOpacity>
+            <TouchableOpacity onPress={procurar} style={styleLogin.botao}><Text>entrar</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}><Text style={styleLogin.cadastro}>nao possui conta?</Text></TouchableOpacity>
         </View>
     );
 }

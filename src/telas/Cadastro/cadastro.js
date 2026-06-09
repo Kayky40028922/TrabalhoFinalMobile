@@ -11,11 +11,16 @@ export default function Cadastro({ navigation }){
 
     const adicionar = () => {
 
-        if ( !email || !senha || !confirmar_senha){
+        if (!email || !senha || !confirmar_senha){
             alert("preencha todos os campos");
+            return;
+        }
+        if (senha !== confirmar_senha){
+            alert("comfirme a senha correta");
+            return;
         }
 
-        axios.post("http://10.142.204.224:3000/cadastrar", {
+        axios.post("http://10.76.10.224:3000/cadastrar", {
             email,
             senha,
             confirmar_senha
@@ -39,7 +44,7 @@ export default function Cadastro({ navigation }){
             <TextInput style={styleCadastro.email} placeholder="email" value={email} onChangeText={setEmail}></TextInput>
             <TextInput style={styleCadastro.senha} placeholder="senha" value={senha} onChangeText={setSenha}></TextInput>
             <TextInput style={styleCadastro.confSenha} placeholder="confirmar senha" value={confirmar_senha} onChangeText={setConfirmar_senha}></TextInput>
-            <TouchableOpacity onPress={adicionar}><Text>enviar</Text></TouchableOpacity>
+            <TouchableOpacity onPress={adicionar} style={styleCadastro.botao}><Text style={styleCadastro.textoBotao}>enviar</Text></TouchableOpacity>
         </View>
     );
 }
