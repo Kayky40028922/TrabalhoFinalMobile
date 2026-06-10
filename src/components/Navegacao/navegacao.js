@@ -2,11 +2,11 @@ import { TouchableOpacity, View } from "react-native";
 import { styleNavegacao } from "../style/styleNavegacao";
 import { BookOpenText, ChartColumnStacked, House, Menu } from "lucide-react-native";
 
-export default function Navegacao(){
+export default function Navegacao({ navigation }){
     return(
         <View style={styleNavegacao.container}>
             <View style={styleNavegacao.btns}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                     <House 
                         color={'#ffff'}
                     />
@@ -16,12 +16,12 @@ export default function Navegacao(){
                         color={'#ffff'}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Categorias')}>
                     <ChartColumnStacked 
                         color={'#ffff'}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                     <Menu 
                         color={'#ffff'}
                     />

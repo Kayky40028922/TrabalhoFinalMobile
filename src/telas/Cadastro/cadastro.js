@@ -20,7 +20,7 @@ export default function Cadastro({ navigation }){
             return;
         }
 
-        axios.post("http://10.40.3.119:3000/cadastrar", {
+        axios.post("http://10.30.3.98:3000/cadastrar", {
             email,
             senha,
             confirmar_senha

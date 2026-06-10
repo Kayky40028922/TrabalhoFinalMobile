@@ -9,7 +9,7 @@ export default function Login({ navigation }){
     const [senha, setSenha] = useState('');
 
     const procurar = ()=>{
-        axios.post("http://10.40.3.119:3000/logar", {
+        axios.post("http://10.30.3.98:3000/logar", {
             email,
             senha
         })

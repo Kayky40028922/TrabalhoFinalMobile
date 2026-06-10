@@ -2,7 +2,7 @@ import { FlatList, Image, ScrollView, Text, View } from "react-native";
 import { styleHome } from "../style/styleHome";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
-import Cabecalho from "../../components/Cabecalho/cabecalho";
+// import Cabecalho from "../../components/Cabecalho/cabecalho";
 import Navegacao from "../../components/Navegacao/navegacao";
 
 export default function Home({ navigation }){
@@ -17,8 +17,7 @@ export default function Home({ navigation }){
                 params: {
                     limit: 100,
                     "includes[]": ["cover_art",
-                    "author"
-                ]
+                    "author"]
                 }       
             });
 
@@ -70,7 +69,7 @@ export default function Home({ navigation }){
             );
             }}
             />
-            <Navegacao/>
+            <Navegacao />
         </View>
     );
 }
