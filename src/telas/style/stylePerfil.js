@@ -3,10 +3,13 @@ import { StyleSheet } from "react-native";
 export const stylePerfil = StyleSheet.create({
   container: {
     flex: 1,
+  },
+
+  tela: {
+    flex: 1,
     backgroundColor: "#111",
     padding: 10,
   },
-
   usuario: {
     backgroundColor: "#1d1d1d",
     borderRadius: 12,
@@ -37,11 +40,6 @@ export const stylePerfil = StyleSheet.create({
     color: "#aaa",
     fontSize: 12,
     marginTop: 3,
-  },
-
-  sair: {
-    color: "#fff",
-    fontSize: 22,
   },
 
   opcao: {
@@ -93,4 +91,8 @@ export const stylePerfil = StyleSheet.create({
     color: "#bbb",
     fontSize: 11,
   },
+  espaco: {
+    height: '10%',
+    width: '100%',
+  }
 });

@@ -3,11 +3,13 @@ import { StyleSheet } from "react-native";
 export const styleCategorias = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  tela: {
+    flex: 1,
     backgroundColor: "#222",
     paddingTop: 20,
     paddingHorizontal: 16,
   },
-
   grid: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -15,7 +17,7 @@ export const styleCategorias = StyleSheet.create({
   },
 
   card: {
-    width: "48%", // ~2 colunas
+    width: "48%",
     marginBottom: 18,
   },
 
@@ -32,4 +34,8 @@ export const styleCategorias = StyleSheet.create({
     height: 160,
     borderRadius: 12,
   },
+  espaco: {
+    height: '10%',
+    width: '100%',
+  }
 });

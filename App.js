@@ -18,8 +18,8 @@ export default function App() {
       >
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Perfil' component={Perfil} />
-        <Stack.Screen name='Categorias' component={Categorias} />
         <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Categorias' component={Categorias} />
         <Stack.Screen name='Cadastro' component={Cadastro} />
       </Stack.Navigator>
     </NavigationContainer>

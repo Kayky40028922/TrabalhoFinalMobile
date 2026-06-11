@@ -8,10 +8,11 @@ export const styleNavegacao = StyleSheet.create({
     position: 'fixed',
     bottom: 0,
   },
+ 
   btns: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-around',
+    alignItems: 'center',
     marginTop: '20px'
   }
 })

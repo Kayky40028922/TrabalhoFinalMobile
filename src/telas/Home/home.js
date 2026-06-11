@@ -69,7 +69,7 @@ export default function Home({ navigation }){
             );
             }}
             />
-            <Navegacao />
+            <Navegacao navigation={navigation} />
         </View>
     );
 }
